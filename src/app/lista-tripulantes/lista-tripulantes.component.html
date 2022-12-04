@@ -1,0 +1,18 @@
+<h2>Lista de tripulantes</h2>
+<div *ngFor="let tripulante of tripulantes">
+    <p>Nombre: {{tripulante.nombre}}</p>
+    <p>Curso: {{tripulante.cursos}}</p>
+    <p>Dirección: {{tripulante.direccion.calle}} {{tripulante.direccion.numero}} {{tripulante.direccion.complemento}}
+    </p>
+    <p><label>Mostrar notas</label> <button (click)="variable=!variable" >+</button></p>
+    <div *ngIf="variable">
+        <div *ngFor="let nota of tripulante.calificaciones; let i = index">
+            <h4>nota #{{i+1}}</h4>
+            <p>Tipo nota: {{nota.tipoNota}}</p>
+            <p>nota: {{nota.nota}}</p>
+            <p>comentarios: {{nota.comentario}}</p>
+        </div>
+    </div>
+    
+    <button>cancelar</button>
+</div>
