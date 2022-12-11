@@ -1,0 +1,13 @@
+<form (submit)="signin()" #formLogin="ngForm">
+
+    <div>
+        <label for="username">Username:</label>
+        <input required type="text" id="username" name="username" placeholder="username" [(ngModel)]="login.username">
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input required type="password" id="password" name="password" placeholder="password" [(ngModel)]="login.password">
+    </div>
+
+    <button [disabled]="!formLogin.form.valid" type="submit">Iniciar sesión</button>
+</form>

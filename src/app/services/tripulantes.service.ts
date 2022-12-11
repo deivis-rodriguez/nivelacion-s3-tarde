@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
 import { Tripulante } from '../models/tripulante';
+import { TokenStorageService } from './token-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,6 @@ export class TripulantesService {
   private url: string = 'http://localhost:8080/tripulantes';
 
   constructor(private http: HttpClient) {
-
   }
 
   public listar(): Observable<Tripulante[]> {
@@ -27,7 +27,7 @@ export class TripulantesService {
     return this.http.put<Tripulante>(`this.url/${id}`, tripulante);
   }
   public eliminar(id: string): Observable<void> {
-    return this.http.get<void>(`this.url/${id}`);
+    return this.http.delete<void>(`this.url/${id}`);
   }
 
 }
